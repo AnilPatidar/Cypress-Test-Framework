@@ -10,7 +10,14 @@ describe('My First spec', () => {
 
   it('Validate example.cypress.io website', () => {
     cy.visit('/commands/traversal')
-    
   })
-  
+
+  it('Cypress Studio - Record and Playback', () => {
+    cy.visit('https://www.google.com')
+
+    /* ==== Generated with Cypress Studio ==== */
+    cy.get('.lnXdpd').should('be.visible');
+    /* ==== End Cypress Studio ==== */
+  })
+ 
 })
