@@ -1,0 +1,18 @@
+{
+  "name": "cypress.tutorial",
+  "version": "1.0.0",
+  "description": "it's for learning cypress",
+  "main": "index.js",
+  "scripts": {
+    "test-run": "cypress run --spec 'cypress/e2e/1-getting-started/todo.cy.js'",
+    "open" :  "cypress open"
+  }, 
+  "author": "anil.patidar",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.13.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
