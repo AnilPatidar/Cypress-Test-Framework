@@ -37,7 +37,17 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+             width: 400px;
+        height: 400px;
+        border: 2px dashed #aaa;
+        position: relative;
         }
+         .draggable {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        cursor: grab;
+    }
 
         .item {
             width: 300px;
@@ -101,15 +111,15 @@
            
             <h1>Cypress Practice Website</h1>
 
-    <h5>Checkbox:</h5>
+    <h5>Select Notifications Type:</h5>
     <input type="checkbox" id="checkbox1" name="checkbox1">
-    <label for="checkbox1">Checkbox 1</label>
+    <label for="checkbox1">WhatsApp</label>
     <input type="checkbox" id="checkbox2" name="checkbox1">
-    <label for="checkbox2">Checkbox 2</label>
+    <label for="checkbox2">Facebook</label>
     <input type="checkbox" id="checkbox3" name="checkbox1">
-    <label for="checkbox3">Checkbox 3</label>
+    <label for="checkbox3">Linkedin</label>
      <input type="checkbox" id="checkbox4" name="checkbox1">
-    <label for="checkbox4">Checkbox 4</label>
+    <label for="checkbox4">Instagram</label>
     
     <h5>Gender: </h5>
     <input type="radio" id="male" name="radio" value="option1">
@@ -145,22 +155,45 @@
         }
     </script>
 
-    <h5>Static Select List:</h5>
+    <h5>Current Year:</h5>
     <select id="staticSelect">
-        <option value="staticOption1">Static Option 1</option>
-        <option value="staticOption2">Static Option 2</option>
-        <option value="staticOption3">Static Option 3</option>
+        <option value="staticOption1">2024</option>
+        <option value="staticOption2">2023</option>
+        <option value="staticOption3">2022</option>
     </select>
 
-    <h5>Drag and Drop:</h5>
-    <div id="draggable" draggable="true">Drag me!</div>
-    <div id="droppable">Drop here!</div>
+    
+<h2>Drag and Drop Images</h2>
 
+<div id="container">
+    <img src="https://source.unsplash.com/50x50/?product" class="draggable" id="drag1" draggable="true" ondragstart="drag(event)" alt="Image 1">
+    <img src="https://source.unsplash.com/50x50/?product" class="draggable" id="drag2" draggable="true" ondragstart="drag(event)" alt="Image 2">
+</div>
+
+ 
     <h5>Two-Click Button:</h5>
     <button id="twoClickButton" onclick="toggleTextArea()" style="width: 150px; height: 50px;">Click Me Twice</button>
     <textarea id="hiddenTextArea" style="display: none;">This text area is hidden by default</textarea>
 
     <script>
+function drag(event) {
+        event.dataTransfer.setData("text", event.target.id);
+    }
+
+    document.addEventListener("dragover", function(event) {
+        event.preventDefault();
+    });
+
+    document.addEventListener("drop", function(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        var draggedElement = document.getElementById(data);
+        var container = document.getElementById("container");
+        container.appendChild(draggedElement);
+        draggedElement.style.left = (event.clientX - container.offsetLeft) + "px";
+        draggedElement.style.top = (event.clientY - container.offsetTop) + "px";
+    });
+
         let clickCount = 0;
 
         function toggleTextArea() {
