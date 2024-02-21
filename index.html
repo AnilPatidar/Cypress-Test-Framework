@@ -139,26 +139,7 @@
     <input type="text" id="countryInput" oninput="updateCountryList()">
     <select id="dynamicSelect"></select>
 
-    <script>
-        const countries = [
-            "India", "United States", "United Kingdom", "Japan", /* Add more countries as needed */
-        ];
-
-        function updateCountryList() {
-            const inputText = document.getElementById('countryInput').value.toLowerCase();
-            const dynamicSelect = document.getElementById('dynamicSelect');
-            dynamicSelect.innerHTML = ''; // Clear the existing options
-
-            const filteredCountries = countries.filter(country => country.toLowerCase().includes(inputText));
-
-            filteredCountries.forEach(country => {
-                const option = document.createElement('option');
-                option.value = country;
-                option.textContent = country;
-                dynamicSelect.appendChild(option);
-            });
-        }
-    </script>
+  
 
     <h5>Current Year:</h5>
     <select id="staticSelect">
@@ -213,6 +194,24 @@ function drag(event) {
                     clickCount = 0;
                 }, 1000);
             }
+        }
+ const countries = [
+            "India", "United States", "United Kingdom", "Japan", /* Add more countries as needed */
+        ];
+
+        function updateCountryList() {
+            const inputText = document.getElementById('countryInput').value.toLowerCase();
+            const dynamicSelect = document.getElementById('dynamicSelect');
+            dynamicSelect.innerHTML = ''; // Clear the existing options
+
+            const filteredCountries = countries.filter(country => country.toLowerCase().includes(inputText));
+
+            filteredCountries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                dynamicSelect.appendChild(option);
+            });
         }
     </script>
         </div>
