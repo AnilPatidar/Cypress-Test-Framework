@@ -138,9 +138,96 @@
 
         <!-- Dynamic Select Page Content -->
         <div class="tab-pane fade" id="dynamic">
-            <label for="countryInput" class="form-label">Enter Country Name:</label>
-            <input type="text" class="form-control" id="countryInput" oninput="updateCountryList()">
-            <select id="dynamicSelect" class="form-select mt-3"></select>
+
+             <header>
+        <h1>E-commerce Website</h1>
+        <input type="text" placeholder="Search items..." oninput="searchItems(this.value)">
+    </header>
+
+    <div class="container" id="itemContainer">
+        <div class="item">
+            <img src="/Users/anil-patidar/Downloads/valid_face2.png" alt="Item 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1.</p>
+            <button onclick="addToCart('Product 1')">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="/Users/anil-patidar/Downloads/valid_face2.png"  alt="Item 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2.</p>
+            <button onclick="addToCart('Product 2')">Add to Cart</button>
+        </div>
+
+        <!-- Add more items as needed -->
+        
+        <!-- Example of additional items -->
+        <div class="item">
+            <img src="/Users/anil-patidar/Downloads/valid_face2.png" 
+            <p>Description of Product 3.</p>
+            <button onclick="addToCart('Product 3')">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="/Users/anil-patidar/Downloads/valid_face2.png"  alt="Item 4">
+            <h3>Product 4</h3>
+            <p>Description of Product 4.</p>
+            <button onclick="addToCart('Product 4')">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="/Users/anil-patidar/Downloads/valid_face2.png"  alt="Item 5">
+            <h3>Product 5</h3>
+            <p>Description of Product 5.</p>
+            <button onclick="addToCart('Product 5')">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="/Users/anil-patidar/Downloads/valid_face2.png"  alt="Item 6">
+            <h3>Product 6</h3>
+            <p>Description of Product 6.</p>
+            <button onclick="addToCart('Product 6')">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="/Users/anil-patidar/Downloads/valid_face2.png"  alt="Item 7">
+            <h3>Product 7</h3>
+            <p>Description of Product 7.</p>
+            <button onclick="addToCart('Product 7')">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="/Users/anil-patidar/Downloads/valid_face2.png"  alt="Item 8">
+            <h3>Product 8</h3>
+            <p>Description of Product 8.</p>
+            <button onclick="addToCart('Product 8')">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(productName) {
+            alert(productName + ' added to cart!');
+            // You can implement the actual cart functionality here
+        }
+
+        function searchItems(keyword) {
+            const items = document.querySelectorAll('.item');
+            const container = document.getElementById('itemContainer');
+
+            items.forEach(item => {
+                const itemName = item.querySelector('h3').textContent.toLowerCase();
+                if (itemName.includes(keyword.toLowerCase())) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            if (container.innerText.trim() === '') {
+                container.innerHTML = '<p>No matching items found.</p>';
+            }
+        }
+    </script>
         </div>
 
         <!-- Add more tab content for additional pages as needed -->
