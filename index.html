@@ -4,13 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selenium Practice Website</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Add your custom styles here */
+        body {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Selenium Practice Website</h1>
+    <h1 class="display-4">Selenium Practice Website</h1>
+
+    <!-- Bootstrap Tabs -->
+    <ul class="nav nav-tabs mt-4" id="pagesTabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="dynamic-tab" data-bs-toggle="tab" href="#dynamic">Dynamic Select</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="dynamic-tab" data-bs-toggle="tab" href="#dynamic">Dynamic Select</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="dynamic-tab" data-bs-toggle="tab" href="#dynamic">Dynamic Select</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="dynamic-tab" data-bs-toggle="tab" href="#dynamic">Dynamic Select</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="dynamic-tab" data-bs-toggle="tab" href="#dynamic">Dynamic Select</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="dynamic-tab" data-bs-toggle="tab" href="#dynamic">Dynamic Select</a>
+        </li>
+        <!-- Add more tabs for additional pages as needed -->
+    </ul>
+
+    <div class="tab-content mt-3">
+        <!-- Home Page Content -->
+        <div class="tab-pane fade show active" id="home">
+           
+            <h1>Selenium Practice Website</h1>
 
     <h2>Checkbox:</h2>
     <input type="checkbox" id="checkbox1" name="checkbox1">
@@ -79,6 +134,21 @@
             }
         }
     </script>
+        </div>
 
+        <!-- Dynamic Select Page Content -->
+        <div class="tab-pane fade" id="dynamic">
+            <label for="countryInput" class="form-label">Enter Country Name:</label>
+            <input type="text" class="form-control" id="countryInput" oninput="updateCountryList()">
+            <select id="dynamicSelect" class="form-select mt-3"></select>
+        </div>
+
+        <!-- Add more tab content for additional pages as needed -->
+    </div>
+
+    <!-- Your existing script remains unchanged -->
+
+    <!-- Add Bootstrap JS and Popper.js (required for Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
