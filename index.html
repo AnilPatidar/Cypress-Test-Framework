@@ -176,7 +176,7 @@ function drag(event) {
         event.preventDefault();
         var data = event.dataTransfer.getData("text");
         var draggedElement = document.getElementById(data);
-        var container = document.getElementById("container");
+        var container = document.getElementById("containerdrag");
         container.appendChild(draggedElement);
         draggedElement.style.left = (event.clientX - container.offsetLeft) + "px";
         draggedElement.style.top = (event.clientY - container.offsetTop) + "px";
