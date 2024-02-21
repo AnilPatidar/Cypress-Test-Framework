@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Practice Website</title>
+    <style>
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+
+    <h1>Selenium Practice Website</h1>
+
+    <h2>Checkbox:</h2>
+    <input type="checkbox" id="checkbox1" name="checkbox1">
+    <label for="checkbox1">Checkbox 1</label>
+
+    <h2>Radio Buttons:</h2>
+    <input type="radio" id="radio1" name="radio" value="option1">
+    <label for="radio1">Option 1</label>
+    <input type="radio" id="radio2" name="radio" value="option2">
+    <label for="radio2">Option 2</label>
+
+  
+   <h2>Dynamic Select List:</h2>
+    <label for="countryInput">Enter Country Name:</label>
+    <input type="text" id="countryInput" oninput="updateCountryList()">
+    <select id="dynamicSelect"></select>
+
+    <script>
+        const countries = [
+            "India", "United States", "United Kingdom", "Japan", /* Add more countries as needed */
+        ];
+
+        function updateCountryList() {
+            const inputText = document.getElementById('countryInput').value.toLowerCase();
+            const dynamicSelect = document.getElementById('dynamicSelect');
+            dynamicSelect.innerHTML = ''; // Clear the existing options
+
+            const filteredCountries = countries.filter(country => country.toLowerCase().includes(inputText));
+
+            filteredCountries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                dynamicSelect.appendChild(option);
+            });
+        }
+    </script>
+
+    <h2>Static Select List:</h2>
+    <select id="staticSelect">
+        <option value="staticOption1">Static Option 1</option>
+        <option value="staticOption2">Static Option 2</option>
+        <option value="staticOption3">Static Option 3</option>
+    </select>
+
+    <h2>Drag and Drop:</h2>
+    <div id="draggable" draggable="true">Drag me!</div>
+    <div id="droppable">Drop here!</div>
+
+    <h2>Two-Click Button:</h2>
+    <button id="twoClickButton" onclick="toggleTextArea()">Click Me Twice</button>
+    <textarea id="hiddenTextArea" style="display: none;">This text area is hidden by default</textarea>
+
+    <script>
+        let clickCount = 0;
+
+        function toggleTextArea() {
+            clickCount++;
+
+            if (clickCount === 2) {
+                document.getElementById('hiddenTextArea').style.display = 'block';
+            } else {
+                setTimeout(() => {
+                    clickCount = 0;
+                }, 1000);
+            }
+        }
+    </script>
+
+</body>
+</html>
